@@ -1,15 +1,46 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { BsGithub } from "react-icons/bs";
 import toast from "react-hot-toast";
+import { AuthContext } from "../../context/AuthProvider";
 
 const Login = () => {
+  const { signInEmailPassword, signWithGoogle } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/home";
+
   const handleSubmitInfo = (event) => {
     event.preventDefault();
 
     const email = event.target.email.value;
     const password = event.target.password.value;
+
+    signInEmailPassword(email, password)
+      .then(() => {
+        toast.success("Login succesFully");
+        navigate("/home");
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        toast.error(errorMessage);
+      });
+  };
+
+  const handleGoogleSignIn = () => {
+    signWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        toast.success("Login succesfully ");
+        navigate("/home");
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        toast.error(errorMessage);
+      });
   };
 
   return (
@@ -93,7 +124,10 @@ const Login = () => {
                   </Link>
                 </p>
                 <div className="flex justify-center text-center items-center mt-3 text-sm text-gray-500">
-                  <div className="flex items-center">
+                  <div
+                    onClick={handleGoogleSignIn}
+                    className="flex items-center"
+                  >
                     <FcGoogle size={18} className="mx-2" />
                     <p>Google Sign In</p>
                   </div>

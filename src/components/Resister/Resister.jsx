@@ -1,21 +1,56 @@
 import React, { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { BsGithub } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
+import toast from "react-hot-toast";
 
 const Resister = () => {
-  const { user } = useContext(AuthContext);
-  console.log(user);
+  const { createUserEmailPassword, updateUserProfile, signWithGoogle } =
+    useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   const handleSubmitInfo = (event) => {
     event.preventDefault();
+    const form = event.target;
     const name = event.target.name.value;
     const imageUrl = event.target.img.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
 
-    console.log(name, email, password, imageUrl);
+    createUserEmailPassword(email, password)
+      .then((result) => {
+        const user = result.user;
+        toast.success("Created user succesfully !!");
+        updateUserProfile(name, imageUrl)
+          .then(() => {
+            toast.success("Updated user profile !!");
+            form.reset();
+            navigate("/home");
+          })
+          .catch((error) => {
+            const errorMessage = error.message;
+            toast.warn(errorMessage);
+          });
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        toast.error(errorMessage);
+      });
+  };
+
+  const handleGoogleSignIn = () => {
+    signWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        toast.success("Login succesfully ");
+        navigate("/home");
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        toast.error(errorMessage);
+      });
   };
 
   return (
@@ -111,7 +146,7 @@ const Resister = () => {
                       type="submit"
                       className="w-full btn btn-outline btn-secondary focus:ring-opacity-50"
                     >
-                      Sign in
+                      Sign Up
                     </button>
                   </div>
                 </form>
@@ -126,7 +161,10 @@ const Resister = () => {
                   </Link>
                 </p>
                 <div className="flex justify-center text-center items-center mt-3 text-sm text-gray-500">
-                  <div className="flex items-center">
+                  <div
+                    onClick={handleGoogleSignIn}
+                    className="flex items-center"
+                  >
                     <FcGoogle size={18} className="mx-2" />
                     <p>Google Sign In</p>
                   </div>

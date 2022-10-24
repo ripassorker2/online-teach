@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
 
 const Home = () => {
+  const { user } = useContext(AuthContext);
+
   return (
     <div>
       <section>
@@ -16,32 +19,36 @@ const Home = () => {
               Architecto beatae!
             </p>
             <div className="flex flex-wrap justify-center">
-              <Link to={"/courses"}>
-                <button
-                  type="button"
-                  className="btn btn-secondary px-4 btn-outline mx-5"
-                >
-                  Our Courses
-                </button>
-              </Link>
+              {user?.uid ? (
+                <Link to={"/courses"}>
+                  <button
+                    type="button"
+                    className="btn btn-secondary px-4 btn-outline mx-5"
+                  >
+                    Our Courses
+                  </button>
+                </Link>
+              ) : (
+                <>
+                  <Link to={"/login"}>
+                    <button
+                      type="button"
+                      className="btn btn-info px-4 btn-outline mx-5"
+                    >
+                      Sign In
+                    </button>
+                  </Link>
 
-              <Link to={"/login"}>
-                <button
-                  type="button"
-                  className="btn btn-info px-4 btn-outline mx-5"
-                >
-                  Sign In
-                </button>
-              </Link>
-
-              <Link to={"/resister"}>
-                <button
-                  type="button"
-                  className="btn btn-secondary px-4 btn-outline"
-                >
-                  Sign Up
-                </button>
-              </Link>
+                  <Link to={"/resister"}>
+                    <button
+                      type="button"
+                      className="btn btn-secondary px-4 btn-outline"
+                    >
+                      Sign Up
+                    </button>
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>

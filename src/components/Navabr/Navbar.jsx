@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
 
 const Navbar = () => {
-  const user = { name: "rifat" };
+  const { user, logOut } = useContext(AuthContext);
 
   const [navbar, setNavbar] = useState(false);
   return (
@@ -80,7 +81,7 @@ const Navbar = () => {
                       to={"/"}
                       className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
                     >
-                      <button>Sign Out</button>
+                      <button onClick={logOut}>Sign Out</button>
                     </Link>
                   </>
                 ) : (
@@ -112,14 +113,14 @@ const Navbar = () => {
                   src={user?.photoURL}
                   alt=""
                   className=" text-white hover:text-indigo-200 text-lg "
-                  style={{ height: "40px", borderRadius: "50%" }}
+                  style={{ height: "40px", width: "40px", borderRadius: "50%" }}
                 />
 
                 <Link
                   to={"/"}
                   className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
                 >
-                  <button>Sign Out</button>
+                  <button onClick={logOut}>Sign Out</button>
                 </Link>
               </>
             ) : (
