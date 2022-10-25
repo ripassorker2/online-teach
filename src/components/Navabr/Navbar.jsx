@@ -63,11 +63,12 @@ const Navbar = () => {
                 <NavLink to="/courses">COURSES</NavLink>
               </li>
               <li>
-                <NavLink to="/blogs">BLOGS</NavLink>
-              </li>
-              <li>
                 <NavLink to="/faq">FAQ</NavLink>
               </li>
+              <li>
+                <NavLink to="/blogs">BLOGS</NavLink>
+              </li>
+              
             </ul>
           </div>
           <div className="navbar-end flex ">
@@ -84,22 +85,25 @@ const Navbar = () => {
                 </label>
                 <ul
                   tabIndex={0}
-                  className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+                  className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-56"
                 >
                   <li>
-                    <Link className="justify-between">{user?.displayName}</Link>
+                    <Link className="justify-between text-base ">{user?.displayName}</Link>
                   </li>
                   <li>
-                    <Link>{user?.email}</Link>
+                    <Link className="text-base">{user?.email}</Link>
                   </li>
                   <li onClick={logOut}>
-                    <Link to="/">Logout</Link>
+                    <Link className="text-base" to="/">Logout</Link>
                   </li>
                 </ul>
               </div>
             ) : (
               <div>
-                <NavLink to="/login" className="btn btn-sm text-white bg-gray-800">
+                <NavLink
+                  to="/login"
+                  className="btn btn-sm text-white bg-gray-800"
+                >
                   Login
                 </NavLink>
               </div>
