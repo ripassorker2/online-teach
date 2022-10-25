@@ -57,7 +57,8 @@ const Home = () => {
         <img
           src="https://news.cgtn.com/news/7867444e78516a4e3441544d3259544d7849444f31457a6333566d54/img/99f3ebeb55da41c1a10bddb82897e339/99f3ebeb55da41c1a10bddb82897e339.jpg"
           alt=""
-          className="w-5/6 h-1/5 mx-auto mb-12 -mt-20 rounded-lg shadow-md lg:-mt-40 dark:bg-gray-500"
+          className="w-5/6  mx-auto mb-12 -mt-20 rounded-lg shadow-md lg:-mt-40 dark:bg-gray-500"
+          style={{ height: "500px" }}
         />
       </section>
     </div>
