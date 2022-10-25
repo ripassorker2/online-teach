@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import logo from "../../assets/logo.png";
 
@@ -36,45 +36,49 @@ const Navbar = () => {
                 className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <Link to="/">HOME</Link>
+                  <NavLink to="/">HOME</NavLink>
                 </li>
                 <li>
-                  <Link to="/courses">COURSES</Link>
+                  <NavLink to="/courses">COURSES</NavLink>
                 </li>
 
                 <li>
-                  <Link to="/blogs">BLOGS</Link>
+                  <NavLink to="/blogs">BLOGS</NavLink>
                 </li>
                 <li>
-                  <Link to="/faq">FAQ</Link>
+                  <NavLink to="/faq">FAQ</NavLink>
                 </li>
               </ul>
             </div>
-            <Link to="/" className="md:ml-14">
+            <NavLink to="/" className="md:ml-14">
               <img className="w-20 h-14" src={logo} alt="" />
-            </Link>
+            </NavLink>
           </div>
           <div className="navbar-center hidden lg:flex text-white">
             <ul className="menu menu-horizontal p-0">
               <li>
-                <Link to="/home">HOME</Link>
+                <NavLink to="/home">HOME</NavLink>
               </li>
               <li>
-                <Link to="/courses">COURSES</Link>
+                <NavLink to="/courses">COURSES</NavLink>
               </li>
               <li>
-                <Link to="/blogs">BLOGS</Link>
+                <NavLink to="/blogs">BLOGS</NavLink>
               </li>
               <li>
-                <Link to="/faq">FAQ</Link>
+                <NavLink to="/faq">FAQ</NavLink>
               </li>
             </ul>
           </div>
           <div className="navbar-end flex ">
             {user?.uid ? (
               <div className="dropdown dropdown-end mr-6">
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                  <div className="w-10 rounded-full">
+                <label
+                  tabIndex={0}
+                  className="btn btn-ghost btn-circle avatar tooltip tooltip-left"
+                  data-tip={user.displayName}
+                >
+                  <div className="w-10 rounded-full  ">
                     {user?.uid && <img src={user.photoURL} alt="" />}
                   </div>
                 </label>
@@ -83,12 +87,10 @@ const Navbar = () => {
                   className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   <li>
-                    <Link  className="justify-between">
-                      {user?.displayName}
-                    </Link>
+                    <Link className="justify-between">{user?.displayName}</Link>
                   </li>
                   <li>
-                    <Link >{user?.email}</Link>
+                    <Link>{user?.email}</Link>
                   </li>
                   <li onClick={logOut}>
                     <Link to="/">Logout</Link>
@@ -97,10 +99,9 @@ const Navbar = () => {
               </div>
             ) : (
               <div>
-                <Link to="/login" className="btn btn-sm text-white bg-gray-800">
+                <NavLink to="/login" className="btn btn-sm text-white bg-gray-800">
                   Login
-                </Link>
-               
+                </NavLink>
               </div>
             )}
           </div>

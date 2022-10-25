@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 const Faq = () => {
-    return (
-        <div>
-            <h1>gdfgdfghf</h1>
-        </div>
-    );
+  return (
+    <div>
+      
+    </div>
+  );
 };
 
 export default Faq;
