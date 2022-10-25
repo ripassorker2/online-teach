@@ -1,147 +1,111 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
+import logo from "../../assets/logo.png";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
-  const [navbar, setNavbar] = useState(false);
   return (
     <div>
-      <nav className="w-full bg-gray-900 shadow ">
-        <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex">
-          <div>
-            <div className="flex items-center justify-between py-3 md:py-5 md:block">
-              <Link>
-                <h2 className="text-3xl font-bold text-white">Online Teach </h2>
-              </Link>
-              <div className="md:hidden">
-                <button
-                  className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
-                  onClick={() => setNavbar(!navbar)}
+      <div className="bg-gray-900">
+        <div className="navbar container">
+          <div className="navbar-start">
+            <div className="dropdown">
+              <label
+                tabIndex={0}
+                className="btn btn-ghost lg:hidden text-white"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
                 >
-                  {navbar ? (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-6 h-6 text-white"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  ) : (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-6 h-6 text-white"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M4 6h16M4 12h16M4 18h16"
-                      />
-                    </svg>
-                  )}
-                </button>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
-                navbar ? "block" : "hidden"
-              }`}
-            >
-              <ul className="items-center justify-center text-lg space-y-8 md:flex md:space-x-6 md:space-y-0">
-                <li className="text-white hover:text-indigo-200">
-                  <Link to={"/home"}>Home</Link>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h8m-8 6h16"
+                  />
+                </svg>
+              </label>
+              <ul
+                tabIndex={0}
+                className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <Link to="/">HOME</Link>
                 </li>
-                <li className="text-white hover:text-indigo-200">
-                  <Link to={"/courses"}>Our Courses</Link>
+                <li>
+                  <Link to="/courses">COURSES</Link>
                 </li>
-                <li className="text-white hover:text-indigo-200">
-                  <Link to={"/blogs"}>Blogs</Link>
+
+                <li>
+                  <Link to="/blogs">BLOGS</Link>
+                </li>
+                <li>
+                  <Link to="/faq">FAQ</Link>
                 </li>
               </ul>
-
-              <div className="mt-3 space-y-2 lg:hidden md:inline-block">
-                {user?.uid ? (
-                  <>
-                    <p className=" text-white hover:text-indigo-200 text-lg ">
-                      {user?.displayName}
-                    </p>
-                    <Link
-                      to={"/"}
-                      className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
-                    >
-                      <button onClick={logOut}>Sign Out</button>
-                    </Link>
-                  </>
-                ) : (
-                  <>
-                    <Link
-                      to={"/login"}
-                      className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
-                    >
-                      Sign In
-                    </Link>
-                    <Link
-                      to={"/resister"}
-                      className="inline-block w-full px-4 py-2 text-center text-gray-800 bg-gray-600 rounded-md shadow hover:bg-gray-800"
-                    >
-                      Sign Up
-                    </Link>
-                  </>
-                )}
-              </div>
             </div>
+            <Link to="/" className="md:ml-14">
+              <img className="w-20 h-14" src={logo} alt="" />
+            </Link>
           </div>
-          <div className="hidden space-x-2 md:inline-flex items-center">
+          <div className="navbar-center hidden lg:flex text-white">
+            <ul className="menu menu-horizontal p-0">
+              <li>
+                <Link to="/home">HOME</Link>
+              </li>
+              <li>
+                <Link to="/courses">COURSES</Link>
+              </li>
+              <li>
+                <Link to="/blogs">BLOGS</Link>
+              </li>
+              <li>
+                <Link to="/faq">FAQ</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="navbar-end flex ">
             {user?.uid ? (
-              <>
-                <p className=" text-white hover:text-indigo-200 text-lg ">
-                  {user?.displayName}
-                </p>
-                <img
-                  src={user?.photoURL}
-                  alt=""
-                  className=" text-white hover:text-indigo-200 text-lg "
-                  style={{ height: "40px", width: "40px", borderRadius: "50%" }}
-                />
-
-                <Link
-                  to={"/"}
-                  className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
+              <div className="dropdown dropdown-end mr-6">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    {user?.uid && <img src={user.photoURL} alt="" />}
+                  </div>
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
                 >
-                  <button onClick={logOut}>Sign Out</button>
-                </Link>
-              </>
+                  <li>
+                    <Link  className="justify-between">
+                      {user?.displayName}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link >{user?.email}</Link>
+                  </li>
+                  <li onClick={logOut}>
+                    <Link to="/">Logout</Link>
+                  </li>
+                </ul>
+              </div>
             ) : (
-              <>
-                <Link
-                  to={"/login"}
-                  className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
-                >
-                  Sign In
+              <div>
+                <Link to="/login" className="btn btn-sm text-white bg-gray-800">
+                  Login
                 </Link>
-                <Link
-                  to={"/resister"}
-                  className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
-                >
-                  Sign Up
-                </Link>
-              </>
+               
+              </div>
             )}
           </div>
         </div>
-      </nav>
+      </div>
     </div>
   );
 };

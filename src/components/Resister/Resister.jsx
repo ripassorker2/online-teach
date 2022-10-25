@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { BsGithub } from "react-icons/bs";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import toast from "react-hot-toast";
 
@@ -10,6 +10,9 @@ const Resister = () => {
     useContext(AuthContext);
 
   const navigate = useNavigate();
+
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/home";
 
   const handleSubmitInfo = (event) => {
     event.preventDefault();
@@ -27,7 +30,7 @@ const Resister = () => {
           .then(() => {
             toast.success("Updated user profile !!");
             form.reset();
-            navigate("/home");
+            navigate(from, { replace: true });
           })
           .catch((error) => {
             const errorMessage = error.message;
@@ -45,7 +48,7 @@ const Resister = () => {
       .then((result) => {
         const user = result.user;
         toast.success("Login succesfully ");
-        navigate("/home");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;

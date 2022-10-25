@@ -14,9 +14,11 @@ const Home = () => {
               Welcome to our <br /> Online Teach
             </h1>
             <p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl dark:text-gray-900">
-              Cupiditate minima voluptate temporibus quia? Architecto beatae
-              esse ab amet vero eaque explicabo , voluptate temporibus quia?
-              Architecto beatae!
+              Online learning is education that takes place over the Internet.
+              It is often referred to as “e- learning” among other terms.
+              However, online learning is just one type of “distance learning” -
+              the umbrella term for any learning that takes place across
+              distance and not in a traditional classroom.
             </p>
             <div className="flex flex-wrap justify-center">
               {user?.uid ? (
@@ -33,7 +35,7 @@ const Home = () => {
                   <Link to={"/login"}>
                     <button
                       type="button"
-                      className="btn btn-info px-4 btn-outline mx-5"
+                      className="btn btn-primary px-4 btn-outline mx-5"
                     >
                       Sign In
                     </button>

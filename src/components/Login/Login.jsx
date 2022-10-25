@@ -22,7 +22,7 @@ const Login = () => {
     signInEmailPassword(email, password)
       .then(() => {
         toast.success("Login succesFully");
-        navigate("/home");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -35,7 +35,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         toast.success("Login succesfully ");
-        navigate("/home");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
