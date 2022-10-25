@@ -5,11 +5,11 @@ const Blogs = () => {
     <div>
       <section className="dark:bg-gray-800 dark:text-gray-100 w-4/5 m-auto">
         <div className="container flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
-          <h2 className="text-2xl font-semibold sm:text-4xl">
+          <h2 className="text-2xl font-semibold sm:text-4xl mb-6">
             Some basic quistion !!
           </h2>
           <div className="space-y-4">
-            <details className="w-full border rounded-lg" open="">
+            <details className="w-full border border-black rounded-lg" open="">
               <summary className="px-4 py-6 text-2xl focus:outline-none focus-visible:ring-violet-400">
                 1 . what is cors?
               </summary>
@@ -23,7 +23,7 @@ const Blogs = () => {
                 access to their resources.
               </p>
             </details>
-            <details className="w-full border rounded-lg">
+            <details className="w-full border border-black rounded-lg">
               <summary className="px-4 py-6 text-2xl focus:outline-none focus-visible:ring-violet-400">
                 2 . Why are you using firebase? What other options do you have
                 to implement authentication?
@@ -37,7 +37,7 @@ const Blogs = () => {
                 cards, retina scans, voice recognition, and fingerprints.
               </p>
             </details>
-            <details className="w-full border rounded-lg">
+            <details className="w-full border border-black rounded-lg">
               <summary className="px-4 py-6 text-2xl focus:outline-none focus-visible:ring-violet-400">
                 3 . How does the private route work?
               </summary>
@@ -48,7 +48,7 @@ const Blogs = () => {
                 the location state property.
               </p>
             </details>
-            <details className="w-full border rounded-lg">
+            <details className="w-full border border-black rounded-lg">
               <summary className="px-4 py-6 text-2xl focus:outline-none focus-visible:ring-violet-400">
                 4 . What is Node? How does Node work?
               </summary>
