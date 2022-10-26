@@ -3,7 +3,7 @@ import React from "react";
 const Blogs = () => {
   return (
     <div>
-      <section className="dark:bg-gray-800 dark:text-gray-100 w-4/5 m-auto">
+      <section className="bg-gray-800  text-white my-9 w-4/5 m-auto">
         <div className="container flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
           <h2 className="text-2xl font-semibold sm:text-4xl mb-6">
             Some basic quistion !!

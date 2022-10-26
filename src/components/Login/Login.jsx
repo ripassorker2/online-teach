@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import { AuthContext } from "../../context/AuthProvider";
 
 const Login = () => {
-  const { signInEmailPassword, signWithGoogle } = useContext(AuthContext);
+  const { signInEmailPassword, signWithGoogle,signWithGitHub } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -32,6 +32,18 @@ const Login = () => {
 
   const handleGoogleSignIn = () => {
     signWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        toast.success("Login succesfully ");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        toast.error(errorMessage);
+      });
+  };
+  const handleGitHUbSignIn = () => {
+    signWithGitHub()
       .then((result) => {
         const user = result.user;
         toast.success("Login succesfully ");
@@ -131,7 +143,9 @@ const Login = () => {
                     <FcGoogle size={18} className="mx-2" />
                     <p>Google Sign In</p>
                   </div>
-                  <div className="flex items-center">
+                  <div className="flex items-center"
+                  onClick={handleGitHUbSignIn}
+                  >
                     <BsGithub size={18} className="mx-2" />
                     <p>GitHub Sign In</p>
                   </div>

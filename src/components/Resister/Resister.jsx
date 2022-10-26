@@ -6,8 +6,12 @@ import { AuthContext } from "../../context/AuthProvider";
 import toast from "react-hot-toast";
 
 const Resister = () => {
-  const { createUserEmailPassword, updateUserProfile, signWithGoogle } =
-    useContext(AuthContext);
+  const {
+    createUserEmailPassword,
+    updateUserProfile,
+    signWithGoogle,
+    signWithGitHub,
+  } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -45,6 +49,19 @@ const Resister = () => {
 
   const handleGoogleSignIn = () => {
     signWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        toast.success("Login succesfully ");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        toast.error(errorMessage);
+      });
+  };
+
+  const handleGitHUbSignIn = () => {
+    signWithGitHub()
       .then((result) => {
         const user = result.user;
         toast.success("Login succesfully ");
@@ -171,7 +188,10 @@ const Resister = () => {
                     <FcGoogle size={18} className="mx-2" />
                     <p>Google Sign In</p>
                   </div>
-                  <div className="flex items-center">
+                  <div
+                    className="flex items-center"
+                    onClick={handleGitHUbSignIn}
+                  >
                     <BsGithub size={18} className="mx-2" />
                     <p>GitHub Sign In</p>
                   </div>
