@@ -6,7 +6,12 @@ import toast from "react-hot-toast";
 import { AuthContext } from "../../context/AuthProvider";
 
 const Login = () => {
-  const { signInEmailPassword, signWithGoogle,signWithGitHub } = useContext(AuthContext);
+  const {
+    signInEmailPassword,
+    signWithGoogle,
+    signWithGitHub,
+    forgottenPassword,
+  } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -18,6 +23,7 @@ const Login = () => {
 
     const email = event.target.email.value;
     const password = event.target.password.value;
+    
 
     signInEmailPassword(email, password)
       .then(() => {
@@ -54,6 +60,8 @@ const Login = () => {
         toast.error(errorMessage);
       });
   };
+
+  
 
   return (
     <div>
@@ -98,12 +106,13 @@ const Login = () => {
                       >
                         Password
                       </label>
-                      <a
-                        href="/"
+                      <Link
+                      to={'/resetPassword'}
+                        
                         className="text-sm text-blue-500 hover:text-blue-500 hover:underline"
                       >
                         Forgot password?
-                      </a>
+                      </Link>
                     </div>
 
                     <input
@@ -143,8 +152,9 @@ const Login = () => {
                     <FcGoogle size={18} className="mx-2" />
                     <p>Google Sign In</p>
                   </div>
-                  <div className="flex items-center"
-                  onClick={handleGitHUbSignIn}
+                  <div
+                    className="flex items-center"
+                    onClick={handleGitHUbSignIn}
                   >
                     <BsGithub size={18} className="mx-2" />
                     <p>GitHub Sign In</p>

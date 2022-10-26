@@ -5,6 +5,7 @@ import ErrorPage from "../components/ErrorPage/ErrorPage";
 import Faq from "../components/Faq/Faq";
 import Home from "../components/Home/Home";
 import Login from "../components/Login/Login";
+import ResetPassword from "../components/Login/ResetPassword";
 import OurCourses from "../components/OurCourses/OurCourses";
 import SingleCoursesDetails from "../components/OurCourses/SingleCoursesDetails";
 import Resister from "../components/Resister/Resister";
@@ -28,6 +29,7 @@ export const router = createBrowserRouter([
       { path: "/faq", element: <Faq /> },
       { path: "/login", element: <Login /> },
       { path: "/resister", element: <Resister /> },
+      { path: "/resetPassword", element: <ResetPassword /> },
       {
         path: "/course/:id",
         loader: ({ params }) =>

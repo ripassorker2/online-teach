@@ -97,7 +97,7 @@ const Resister = () => {
                       htmlFor="email"
                       className="block mb-2 text-sm text-gray-600 dark:text-gray-200"
                     >
-                      Your Name
+                      Full Name
                     </label>
                     <input
                       type="text"
