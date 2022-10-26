@@ -1,15 +1,24 @@
 import React, { useContext } from "react";
+
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 
 const Home = () => {
   const { user } = useContext(AuthContext);
-
+  
   return (
     <div>
-      <section>
-        <div className="dark:bg-violet-700 text-black">
-          <div className="container flex flex-col items-center px-4 py-16 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32 dark:text-gray-900">
+      <section className="dark:bg-gray-800 dark:text-gray-100 lg:px-20">
+        <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
+          <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
+            <img
+              src="https://leverageedu.com/blog/wp-content/uploads/2020/04/Short-Courses-Online.png"
+              alt=""
+              style={{ height: "400px" }}
+              className="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128"
+            />
+          </div>
+          <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
             <h1 className="text-4xl font-bold leading-none sm:text-6xl xl:max-w-3xl dark:text-gray-900">
               Welcome to our <br /> Online Teach
             </h1>
@@ -20,8 +29,8 @@ const Home = () => {
               the umbrella term for any learning that takes place across
               distance and not in a traditional classroom.
             </p>
-            <div className="flex flex-wrap justify-center">
-              {user?.uid ? (
+            <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
+            {user?.uid ? (
                 <Link to={"/courses"}>
                   <button
                     type="button"
@@ -54,12 +63,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <img
-          src="https://news.cgtn.com/news/7867444e78516a4e3441544d3259544d7849444f31457a6333566d54/img/99f3ebeb55da41c1a10bddb82897e339/99f3ebeb55da41c1a10bddb82897e339.jpg"
-          alt=""
-          className="w-5/6  mx-auto mb-12 -mt-20 rounded-lg shadow-md lg:-mt-40 dark:bg-gray-500"
-          style={{ height: "500px" }}
-        />
       </section>
     </div>
   );

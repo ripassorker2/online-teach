@@ -12,23 +12,22 @@ const SingleCoursesDetails = () => {
   return (
     <div className="">
       <section className="">
-        <Pdf targetRef={ref} filename="document.pdf">
-          {({ toPdf }) => (
-            <button onClick={toPdf} className="button">
-              Generate PDF
-            </button>
-          )}
-        </Pdf>
         <div className="text-3xl ml-16 mt-16 text-center flex justify-end items-center text-fuchsia-700 ">
           <FaDownload />
-          <span className="mr-9 ml-5">Download Pdf</span>
+          <Pdf targetRef={ref} filename="document.pdf">
+            {({ toPdf }) => (
+              <button onClick={toPdf} className="mr-9 ml-5 ">
+                Download Pdf
+              </button>
+            )}
+          </Pdf>
         </div>
         <div
           className="px-6 py-12 md:px-12  text-gray-800 text-center lg:text-left"
           ref={ref}
         >
           <div className="container mx-auto xl:px-32">
-            <div className="grid lg:grid-cols-2 gap-12  items-center">
+            <div className="grid lg:grid-cols-2  gap-12  items-center">
               <div className=" ">
                 <img
                   src={picture}
