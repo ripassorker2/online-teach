@@ -16,17 +16,19 @@ const OurCourses = () => {
           ))}
         </div>
       </div>
-      <div className="text-lg py-6 text-center bg-gray-800 ">
-        <h1 className="text-3xl  border-b-2 border-white pb-4 text-white">
+      <div className="text-lg py-6 text-center bg-gray-800 p-5 ">
+        <h1 className="text-3xl  border-b-2 border-white pb-4  text-white">
           Our courses
         </h1>
         {courses.map((course) => (
-          <ul
-            className=" hover:ease-out pt-4 text-blue-600 hover:text-white duration-300 underline my-3"
+          <Link
+          to={`/course/${course.id}`}
+            className=" hover:ease-out mt-4 text-lg
+            btn w-full btn-secondar  "
             key={course.id}
           >
-            <Link to={`/course/${course.id}`}>{course?.name}</Link>
-          </ul>
+            <button >{course?.name}</button>
+          </Link>
         ))}
       </div>
     </div>

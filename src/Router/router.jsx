@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
       { path: "/home", element: <Home /> },
       {
         path: "/courses",
-        loader: () => fetch("http://localhost:5000/courses"),
+        loader: () => fetch("https://online-teach-server.vercel.app/courses"),
         element: <OurCourses />,
       },
       { path: "/blogs", element: <Blogs /> },
@@ -31,13 +31,13 @@ export const router = createBrowserRouter([
       {
         path: "/course/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/courses/${params.id}`),
+          fetch(`https://online-teach-server.vercel.app/courses/${params.id}`),
         element: <SingleCoursesDetails />,
       },
       {
         path: "/cheekout/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/courses/${params.id}`),
+          fetch(`https://online-teach-server.vercel.app/courses/${params.id}`),
         element: (
           <PrivetRouter>
             <CheekOut />

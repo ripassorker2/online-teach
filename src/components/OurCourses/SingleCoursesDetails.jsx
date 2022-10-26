@@ -5,7 +5,6 @@ import { FaDownload } from "react-icons/fa";
 const SingleCoursesDetails = () => {
   const courseDetails = useLoaderData();
   const { name, picture, details, price, id } = courseDetails;
-  console.log(courseDetails);
   return (
     <div className="">
       <section className="">
@@ -30,7 +29,7 @@ const SingleCoursesDetails = () => {
                   {name}
                 </h1>
                 <p className="font-bold text-2xl text-gray-800 text- my-3">
-                  Price : $ {price}
+                 CourseJ Price : $ {price}
                 </p>
                 {/* <p className="font-bold text-xl text-gray-800 text- mb-3">
                   Rating : {rating}
