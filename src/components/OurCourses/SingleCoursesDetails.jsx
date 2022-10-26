@@ -14,9 +14,9 @@ const SingleCoursesDetails = () => {
       <section className="">
         <div className="text-3xl ml-16 mt-16 text-center flex justify-end items-center text-fuchsia-700 ">
           <FaDownload />
-          <Pdf targetRef={ref} filename="document.pdf">
+          <Pdf targetRef={ref}  filename="document.pdf">
             {({ toPdf }) => (
-              <button onClick={toPdf} className="mr-9 ml-5 ">
+              <button onClick={toPdf}  className="mr-9 ml-5 ">
                 Download Pdf
               </button>
             )}
@@ -25,6 +25,7 @@ const SingleCoursesDetails = () => {
         <div
           className="px-6 py-12 md:px-12  text-gray-800 text-center lg:text-left"
           ref={ref}
+         
         >
           <div className="container mx-auto xl:px-32">
             <div className="grid lg:grid-cols-2  gap-12  items-center">

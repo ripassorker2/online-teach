@@ -24,7 +24,7 @@ const OurCourses = () => {
           <Link
           to={`/course/${course.id}`}
             className=" hover:ease-out mt-4 text-lg
-            btn w-full btn-secondar  "
+            sm:btn w-full text-white "
             key={course.id}
           >
             <button >{course?.name}</button>

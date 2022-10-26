@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/AuthProvider";
 
 const Home = () => {
   const { user } = useContext(AuthContext);
-  
+
   return (
     <div>
       <section className="dark:bg-gray-800 dark:text-gray-100 lg:px-20">
@@ -30,12 +30,9 @@ const Home = () => {
               distance and not in a traditional classroom.
             </p>
             <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-            {user?.uid ? (
+              {user?.uid ? (
                 <Link to={"/courses"}>
-                  <button
-                    type="button"
-                    className="btn btn-secondary px-4 btn-outline mx-5"
-                  >
+                  <button type="button" className="btn btn-secondary py-4  ">
                     Our Courses
                   </button>
                 </Link>
@@ -44,17 +41,14 @@ const Home = () => {
                   <Link to={"/login"}>
                     <button
                       type="button"
-                      className="btn btn-primary px-4 btn-outline mx-5"
+                      className="btn btn-primary px-4  mr-5"
                     >
                       Sign In
                     </button>
                   </Link>
 
                   <Link to={"/resister"}>
-                    <button
-                      type="button"
-                      className="btn btn-secondary px-4 btn-outline"
-                    >
+                    <button type="button" className="btn btn-secondary pr-4 ">
                       Sign Up
                     </button>
                   </Link>
