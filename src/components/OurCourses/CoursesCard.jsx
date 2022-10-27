@@ -5,7 +5,7 @@ const CoursesCard = ({ course }) => {
   const { name, price, picture } = course;
   return (
     <div>
-      <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+      <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md   transform transition duration-500 hover:scale-110 ">
         <img className="rounded-t-lg h-52 w-full" src={picture} alt="" />
 
         <div className="p-5">

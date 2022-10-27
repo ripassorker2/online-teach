@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
-import logo from "../../assets/logo.png";
+
+import { GiTeacher } from "react-icons/gi";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -50,8 +51,11 @@ const Navbar = () => {
                 </li>
               </ul>
             </div>
-            <NavLink to="/" className="md:ml-14">
-              <img className="w-20 h-14" src={logo} alt="" />
+            <NavLink to="/" className="md:ml-14 flex items-center ">
+              <GiTeacher className="text-2xl text-white" />
+              <h1 className=" sm:text-xl text-base text-white ml-3">
+                Online Teach
+              </h1>
             </NavLink>
           </div>
           <div className="navbar-center hidden lg:flex text-white">
@@ -122,17 +126,8 @@ const Navbar = () => {
               </div>
             ) : (
               <div>
-                <Link
-                  to="/login"
-                  className="btn btn-sm text-white bg-gray-800"
-                >
+                <Link to="/login" className="btn btn-sm text-white bg-gray-800">
                   Login
-                </Link>
-                <Link
-                  to="/resister"
-                  className="btn btn-sm ml-3 text-white bg-gray-800"
-                >
-                  Resister
                 </Link>
               </div>
             )}
