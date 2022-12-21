@@ -24,7 +24,7 @@ const SingleCoursesDetails = () => {
           )}
         </Pdf>
       </div>
-      <div className="flex items-center justify-center min-h-screen md:my-7" ref={ref}>
+      <div className="flex items-center justify-center min-h-screen md:my-7 m-auto"  ref={ref}>
         <div className="rounded-xl border p-5 shadow-md w-9/12 bg-white">
           <div className="flex w-full items-center justify-between border-b pb-3">
             <div className="flex items-center space-x-3">

@@ -7,7 +7,7 @@ const Home = () => {
 
   return (
     <div>
-      <section className="dark:bg-gray-800 dark:text-gray-100 lg:px-20">
+      <section className=" dark:text-gray-100 lg:px-20">
         <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
           <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
             <img
@@ -40,14 +40,17 @@ const Home = () => {
                   <Link to={"/login"}>
                     <button
                       type="button"
-                      className="btn btn-primary px-4  mr-5"
+                      className="btn btn-primary px-4  mr-5 w-full"
                     >
                       Sign In
                     </button>
                   </Link>
 
                   <Link to={"/resister"}>
-                    <button type="button" className="btn btn-secondary pr-4 ">
+                    <button
+                      type="button"
+                      className="btn btn-secondary sm:pr-4 w-full "
+                    >
                       Sign Up
                     </button>
                   </Link>
