@@ -5,15 +5,17 @@ const CoursesCard = ({ course }) => {
   const { name, price, picture } = course;
   return (
     <div>
-      <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-lg  transform transition duration-500 hover:scale-110 ">
-        <img className="rounded-t-lg h-52 w-full" src={picture} alt="" />
-
-        <div className="p-5">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+      <div className="max-w-sm bg-white rounded-lg border border-gray-3   duration-500 hover:scale-105  shadow-lg  ">
+        <div>
+          {" "}
+          <img className="rounded-t-lg h-44 w-full " src={picture} alt="" />
+        </div>
+        <div className="p-3">
+          <h5 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 ">
             {name}
           </h5>
 
-          <p className="mb-3 font-bold text-lg  text-gray-700 dark:text-gray-400">
+          <p className="mb-3 font-bold text-lg  text-gray-800 ">
             Course Price : $ {price}
           </p>
           <Link

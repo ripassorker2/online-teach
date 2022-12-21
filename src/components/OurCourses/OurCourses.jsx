@@ -13,7 +13,7 @@ const OurCourses = () => {
         {courses.map((course) => (
           <Link
             to={`/course/${course.id}`}
-            className=" hover:ease-out mt-4 text-lg
+            className="  mt-4 text-lg
             btn w-full text-white inline-block"
             key={course.id}
           >
@@ -22,7 +22,7 @@ const OurCourses = () => {
         ))}
       </div>
       <div className="text-center col-span-3  md:my-24 my-11 ">
-        <h1 className="text-5xl mb-11 pb-5 mx-9 border-b-2 border-black">
+        <h1 className="md:text-5xl text-3xl text-gray-900 mb-11 pb-5 mx-9 border-b-2 border-black">
           Our Courses
         </h1>
         <div className="grid lg:grid-cols-3 md:grid-cols-2  gap-6 w-11/12 m-auto align-middle justify-center">
