@@ -28,7 +28,7 @@ const SingleCoursesDetails = () => {
         className="flex items-center justify-center min-h-screen md:my-7 m-auto"
         ref={ref}
       >
-        <div className="rounded-xl border p-5 shadow-md w-9/12 bg-white">
+        <div className="rounded-xl border p-5 my-7 shadow-md w-9/12 bg-white">
           <div className="flex w-full items-center justify-between border-b pb-3">
             <div className="flex items-center space-x-3">
               <div className=" rounded-full bg-slate-400 bg-[url('https://i.pravatar.cc/32')]">
@@ -44,13 +44,13 @@ const SingleCoursesDetails = () => {
             </div>
             <div className="flex items-center space-x-8">
               <button className="rounded-2xl border bg-neutral-100 px-3 text-slate-900 py-1 text-xs font-semibold">
-                Course duration :
+                Course duration
               </button>
               <div className="text-xs text-slate-900">10 Month</div>
             </div>
           </div>
           <div>
-            <img src={picture} className="w-full h-96" alt="" />
+            <img src={picture} className="w-full md:h-96 h-48" alt="" />
           </div>
 
           <div className="mt-4 mb-4">
@@ -106,7 +106,7 @@ const SingleCoursesDetails = () => {
               <div className=" cursor-pointer text-right transition hover:text-slate-200">
                 <Link to={`/cheekout/${id}`}>
                   {" "}
-                  <button className="sm:btn btn-sm btn text-right hover:scale-105 duration-500">
+                  <button className="sm:btn md:text-base text-xs btn-sm btn text-right hover:scale-105 duration-500">
                     Get Primeum <FaArrowRight className="ml-3" />{" "}
                   </button>
                 </Link>
