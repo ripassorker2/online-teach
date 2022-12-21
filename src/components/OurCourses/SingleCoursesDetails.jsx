@@ -24,36 +24,45 @@ const SingleCoursesDetails = () => {
           )}
         </Pdf>
       </div>
-      <div className="flex items-center justify-center min-h-screen md:my-7 m-auto"  ref={ref}>
+      <div
+        className="flex items-center justify-center min-h-screen md:my-7 m-auto"
+        ref={ref}
+      >
         <div className="rounded-xl border p-5 shadow-md w-9/12 bg-white">
           <div className="flex w-full items-center justify-between border-b pb-3">
             <div className="flex items-center space-x-3">
               <div className=" rounded-full bg-slate-400 bg-[url('https://i.pravatar.cc/32')]">
-                <img src={user?.photoURL} className="rounded-full h-12 w-12" alt="" />
+                <img
+                  src={user?.photoURL}
+                  className="rounded-full h-12 w-12"
+                  alt=""
+                />
               </div>
-              <div className="text-lg font-bold text-slate-700">
-               Hi! {user?.displayName}
+              <div className="text-lg font-bold text-slate-900">
+                Hi! {user?.displayName}
               </div>
             </div>
             <div className="flex items-center space-x-8">
-              <button className="rounded-2xl border bg-neutral-100 px-3 py-1 text-xs font-semibold">
+              <button className="rounded-2xl border bg-neutral-100 px-3 text-slate-900 py-1 text-xs font-semibold">
                 Course duration :
               </button>
-              <div className="text-xs text-neutral-500">10 Month</div>
+              <div className="text-xs text-slate-900">10 Month</div>
             </div>
           </div>
           <div>
             <img src={picture} className="w-full h-96" alt="" />
           </div>
 
-          <div className="mt-4 mb-6">
-            <div className="mb-3 text-xl font-bold">{name}</div>
-            <div className="mb-3 text-xl font-bold">Course price : ${price}</div>
-            <div className="text-base text-neutral-600">{details}</div>
+          <div className="mt-4 mb-4">
+            <div className="mb-1 text-xl text-slate-900 font-bold">{name}</div>
+            <div className="mb-1 text-xl text-slate-900 font-bold">
+              Course price : ${price}
+            </div>
+            <div className="text-base text-slate-900">{details}</div>
           </div>
 
           <div>
-            <div className="flex items-center justify-between text-slate-500">
+            <div className="flex items-center justify-between text-slate-900">
               <div className="flex space-x-4 md:space-x-8">
                 <div className="flex cursor-pointer items-center transition hover:text-slate-600">
                   <svg
@@ -94,10 +103,13 @@ const SingleCoursesDetails = () => {
                   <span className="ml-2 ">{rating}</span>
                 </div>
               </div>
-              <div className=" cursor-pointer text-right transition hover:text-slate-600">
-               <Link to={`/cheekout/${id}`}> <button className="sm:btn btn-sm btn text-right hover:scale-105 duration-500">
-                  Get Primeum <FaArrowRight className="ml-3" />{" "}
-                </button></Link>
+              <div className=" cursor-pointer text-right transition hover:text-slate-200">
+                <Link to={`/cheekout/${id}`}>
+                  {" "}
+                  <button className="sm:btn btn-sm btn text-right hover:scale-105 duration-500">
+                    Get Primeum <FaArrowRight className="ml-3" />{" "}
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
