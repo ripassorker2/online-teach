@@ -24,7 +24,7 @@ const Home = () => {
             <p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl dark:text-gray-900">
               Online learning is education that takes place over the Internet.
               It is often referred to as “e- learning” among other terms.
-              However, online learning is just one type of “distance learning” -
+              However, online learning is just one type of “distance learning”
               the umbrella term for any learning that takes place across
               distance and not in a traditional classroom.
             </p>
